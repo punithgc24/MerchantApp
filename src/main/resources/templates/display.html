@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<style>
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+h1{
+color:red;
+}
+
+td, th {
+  color: black;
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: px;
+}
+</style>
+<body>
+<h1>Hi</h1>
+
+<table>
+<form th:action="@{goCart}" method=POST>
+<div class="container my-2">
+<thead>
+  <tr>
+    <th>ITEM CODE</th>
+    <th>ITEM NAME</th>
+    <th>SELLING PRICE</th>
+    <th>QUANTITY IN HAND</th>
+    <th>Select</th>
+    
+  </tr>
+  </thead>
+  <tbody>
+ <tr th:each="item:${items}">
+
+<td th:text="${item.itemCode}"></td>
+ <td th:text="${item.itemName}"></td>
+ <td th:text="${item.sellingPrice}"></td>
+ <td th:text="${item.quantityInHand}"></td>
+ <td>
+ 	<input name="items" type="checkbox" th:value="${item.itemCode}"/>
+ </td>
+ </tbody>
+  </table>
+ <button type="submit">Go to cart</button>
+
+ </form>
+
+</body>
+</html>

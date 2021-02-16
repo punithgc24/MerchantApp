@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Cart</title>
+</head>
+<body>
+	<h1>CART LIST</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>ORDER ID</th>
+				<th>ITEM NAME</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="cart:${cartList}">
+				<td th:text="${cart.id}"></td>
+				
+				<tr th:each="it:${cart.items}">
+				<td th:text="${it.itemName}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
